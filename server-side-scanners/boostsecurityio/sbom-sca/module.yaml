@@ -1,4 +1,2 @@
 name: BoostSecurity SBOM SCA
 namespace: boostsecurityio/sbom-sca
-scan_type:
-  - sca

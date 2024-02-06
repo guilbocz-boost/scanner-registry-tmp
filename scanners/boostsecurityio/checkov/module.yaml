@@ -4,7 +4,7 @@ id: boostsecurityio/checkov
 name: BoostSecurity Checkov
 namespace: boostsecurityio/checkov
 scan_types:
-  - iac
+  - sast
 
 config:
   support_diff_scan: true
