@@ -1,5 +1,2 @@
 name: Snyk Provider
 namespace: boostsecurityio/snyk-provider
-scan_type:
-  - sca
-  - sast
