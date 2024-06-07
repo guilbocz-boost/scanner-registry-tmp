@@ -57,11 +57,11 @@ steps:
         NO_COLOR: "true"
       command:
         run: |
-            $SETUP_PATH/trivy fs --format=cyclonedx --license-full --no-progress --cache-dir=/tmp/trivy/ .
+            $SETUP_PATH/trivy fs --format=cyclonedx --license-full --no-progress --cache-dir=/tmp/trivy/ . 2>&1
       format: cyclonedx
       post-processor:
         docker:
-          image: public.ecr.aws/boostsecurityio/boost-scanner-trivy-sbom::4ab519c@sha256:4406a5e85ae8e05db126ff242a6bea6619cb2a016c25d0a9d609955a1dc4535b
+          image: public.ecr.aws/boostsecurityio/boost-scanner-trivy-sbom:dcc6f5c@sha256:3cf4ee0319f6ebe729e831d743a227332c12d62941df9f6d3eb21db441d8d8c5
           command: process
           environment:
             PYTHONIOENCODING: utf-8
