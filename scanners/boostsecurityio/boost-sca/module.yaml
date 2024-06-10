@@ -56,13 +56,14 @@ steps:
   - scan:
       command:
         environment:
+          NO_COLOR: "true"
           TRIVY_ADDITIONAL_ARGS: ${TRIVY_ADDITIONAL_ARGS---ignore-unfixed}
         run: |
-          $SETUP_PATH/trivy fs --cache-dir=/tmp/trivy/ --format=cyclonedx --license-full --scanners vuln --quiet .
+          $SETUP_PATH/trivy fs --cache-dir=/tmp/trivy/ --format=cyclonedx --license-full --no-progress --scanners vuln . 2>&1
       format: cyclonedx
       post-processor:
         docker:
-          image: public.ecr.aws/boostsecurityio/boost-scanner-trivy-sbom:2077b09@sha256:9acea8e0566becbbf19a51b7de326cda23d124254091f38cf5e2132f298a1301
+          image: public.ecr.aws/boostsecurityio/boost-scanner-trivy-sbom:dcc6f5c@sha256:3cf4ee0319f6ebe729e831d743a227332c12d62941df9f6d3eb21db441d8d8c5
           command: process
           environment:
             PYTHONIOENCODING: utf-8
